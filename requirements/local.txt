@@ -1,0 +1,34 @@
+-r production.txt
+
+Werkzeug[watchdog]==3.0.3 # https://github.com/pallets/werkzeug
+ipdb==0.13.13  # https://github.com/gotcha/ipdb
+psycopg[c]==3.1.19  # https://github.com/psycopg/psycopg
+
+# Testing
+# ------------------------------------------------------------------------------
+mypy==1.10.0  # https://github.com/python/mypy # static type checker for Python
+django-stubs[compatible-mypy]==5.0.2  # https://github.com/typeddjango/django-stubs # stubs for Django framework used with mypy
+pytest==8.2.1  # https://github.com/pytest-dev/pytest # to write tests
+pytest-sugar==1.0.0  # https://github.com/Frozenball/pytest-sugar # enhances the feel and look of pytest
+djangorestframework-stubs[compatible-mypy]==3.15.0  # https://github.com/typeddjango/djangorestframework-stubs # stubs for Django REST framework
+
+# Documentation
+# ------------------------------------------------------------------------------
+sphinx==7.3.7  # https://github.com/sphinx-doc/sphinx # document generation using signatures and doc strings
+sphinx-autobuild==2024.4.16 # https://github.com/GaretJax/sphinx-autobuild # hot reload on document changes
+
+# Code quality
+# ------------------------------------------------------------------------------
+ruff==0.4.6  # https://github.com/astral-sh/ruff # linter
+coverage==7.5.3  # https://github.com/nedbat/coveragepy # determine code coverage
+djlint==1.34.1  # https://github.com/Riverside-Healthcare/djLint # linter for html templates
+pre-commit==3.7.1  # https://github.com/pre-commit/pre-commit # framework for managing pre-commit hooks
+
+# Django
+# ------------------------------------------------------------------------------
+factory-boy==3.3.0  # https://github.com/FactoryBoy/factory_boy # replacement of fixtures
+
+django-debug-toolbar==4.4.2  # https://github.com/jazzband/django-debug-toolbar # provides set of panels that display various debug information
+django-extensions==3.2.3  # https://github.com/django-extensions/django-extensions # handy commands e.g. to generate db class diagram
+django-coverage-plugin==3.1.0  # https://github.com/nedbat/django_coverage_plugin # measure test coverage of django templates -coverage.py plugin 
+pytest-django==4.8.0  # https://github.com/pytest-dev/pytest-django # to test Django applications with the pytest testing tool

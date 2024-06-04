@@ -1,0 +1,5 @@
+#The .gitattributes file is not "mandatory", but a useful tool in the Git toolbox
+#It provides a way to have common git settings for the project if there are more than one collaborators
+#The most common uses for .gitattributes files are line ending handling, working-tree encodings, and Git LFS.
+
+* text=auto
