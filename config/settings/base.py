@@ -129,7 +129,7 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
     "allauth.account.middleware.AccountMiddleware",
-    "users.middlewares.AuthRequiredMiddleware",
+    # "users.middlewares.AuthRequiredMiddleware",
 ]
 
 # STATIC

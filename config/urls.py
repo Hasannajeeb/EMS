@@ -17,6 +17,7 @@ urlpatterns = [
     path(settings.ADMIN_URL, admin.site.urls),
     # User management
     path("users/", include("ems.users.urls", namespace="users")),
+    path("events/", include('ems.events.urls', namespace="events")),
     path("accounts/", include("allauth.urls")),
     
     
@@ -39,8 +40,7 @@ urlpatterns += [
 ]
 
 if settings.DEBUG:
-    # This allows the error pages to be debugged during development, just visit
-    # these url in browser to see how these error pages look like.
+    # This allows the error pages to be debugged during development
     urlpatterns += [
         path(
             "400/",

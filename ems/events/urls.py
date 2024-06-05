@@ -1,13 +1,14 @@
-rom django.urls import path
+from django.urls import path
 
 from .views import event_detail_view
 from .views import event_update_view
-from .views import event_list_view
-from .views import list_user_events_view
+from .views import all_events_list_view
+from .views import user_events_list_view
+
 app_name = "events"
 urlpatterns = [
-    path("~update/", view=event_update_view, name="update"),
+    path("all-events/", view=all_events_list_view, name="all-events"),
+    path("user-events/", view=user_events_list_view, name="user-events"),
     path("<int:pk>/", view=event_detail_view, name="detail"),
-    path("events/", view=event_list_view, name="list"),
-    path("user-events/", view=list_user_events_view, name="list-user-events"),
+    path("~update/", view=event_update_view, name="update"),
 ]
