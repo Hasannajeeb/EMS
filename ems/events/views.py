@@ -18,7 +18,7 @@ from .forms import EventCreateForm
 
 class EventCreateView(LoginRequiredMixin, CreateView):
     model = Event
-    template_name='events/create_event_form.html'
+    template_name='events/event_form.html'
     form_class=EventCreateForm
     
     def form_valid(self, form):
@@ -59,16 +59,6 @@ class EventDetailView(LoginRequiredMixin, DetailView):
 
 event_detail_view = EventDetailView.as_view()
 
-class EventUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
-    model = Event
-    fields = ["name","description","date","time","duration","venue"]
-    success_message = _("Information successfully updated")
-
-    def get_success_url(self):
-        return self.get_absolute_url()
-
-event_update_view = EventUpdateView.as_view()
-
 class EventDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Event
     success_message = _("Event Deleted successfully")
@@ -78,3 +68,14 @@ class EventDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
         return reverse("events:user-events")
 
 event_delete_view = EventDeleteView.as_view()
+
+class EventUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
+    model = Event
+    form_class=EventCreateForm
+    success_message = _("Information successfully updated")
+    template_name='events/event_form.html'
+
+    # def get_success_url(self):
+    #     return self.get_absolute_url()
+
+event_update_view = EventUpdateView.as_view()

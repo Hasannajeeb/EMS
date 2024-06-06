@@ -14,5 +14,5 @@ urlpatterns = [
     path("create-event/", view=event_create_view, name="create-event"),
     path("<int:pk>/", view=event_detail_view, name="detail"),
     path('<int:pk>/delete-event/', view=event_delete_view, name="delete"),
-    # path("~update/", view=event_update_view, name="update"),
+    path("<int:pk>/update/", view=event_update_view, name="update"),
 ]

@@ -24,3 +24,7 @@ class Event(models.Model):
 
     def get_delete_url(self) -> str:
         return reverse("events:delete", kwargs={"pk": self.id})
+
+    def get_update_url(self) -> str:
+        return reverse("events:update", kwargs={"pk": self.id})
+        
