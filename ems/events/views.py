@@ -64,6 +64,11 @@ class EventDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     success_message = _("Event Deleted successfully")
     # success_url =reverse_lazy('events:user-events')
 
+    def get_context_data(self, **kwargs):
+        kwargs = super().get_context_data(**kwargs)
+        kwargs['return_url'] = reverse("events:user-events")
+        return kwargs
+
     def get_success_url(self, **kwargs):
         return reverse("events:user-events")
 
@@ -74,8 +79,5 @@ class EventUpdateView(LoginRequiredMixin, SuccessMessageMixin, UpdateView):
     form_class=EventCreateForm
     success_message = _("Information successfully updated")
     template_name='events/event_form.html'
-
-    # def get_success_url(self):
-    #     return self.get_absolute_url()
 
 event_update_view = EventUpdateView.as_view()
