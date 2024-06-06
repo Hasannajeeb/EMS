@@ -1,4 +1,5 @@
 from django.db import models
+from django.urls import reverse
 
 class Event(models.Model):
     user = models.ForeignKey("users.User", on_delete=models.CASCADE)
@@ -6,7 +7,7 @@ class Event(models.Model):
     description = models.TextField()
     date = models.DateField()
     time = models.TimeField()
-    duration = models.DurationField()
+    duration = models.DurationField(blank = True)
     venue = models.CharField()
 
     def __str__(self):

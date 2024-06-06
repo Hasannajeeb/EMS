@@ -13,10 +13,16 @@ from .models import Event
 from django.utils.translation import gettext_lazy as _
 
 from ems.users.models import User
+from .forms import EventCreateForm
 
 class EventCreateView(LoginRequiredMixin, CreateView):
     model = Event
     template_name='events/create_event_form.html'
+    form_class=EventCreateForm
+    
+    def form_valid(self, form):
+        form.instance.user = self.request.user
+        return super().form_valid(form)
 
 event_create_view = EventCreateView.as_view()
 
@@ -47,6 +53,8 @@ class EventDetailView(LoginRequiredMixin, DetailView):
     model = Event
     slug_field = "id"
     slug_url_kwarg = "id"
+    template_name = 'events/event_details.html'
+    context_object_name = 'obj'
 
 event_detail_view = EventDetailView.as_view()
 
