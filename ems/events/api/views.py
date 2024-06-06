@@ -6,7 +6,7 @@ from rest_framework.mixins import UpdateModelMixin
 from rest_framework.response import Response
 from rest_framework.viewsets import GenericViewSet
 
-from ems.users.models import Event
+from ems.events.models import Event
 
 from .serializers import EventSerializer
 
