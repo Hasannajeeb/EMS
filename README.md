@@ -23,3 +23,7 @@ To run the tests, check your test coverage, and generate an HTML coverage report
 #### Running tests with pytest
 
     $ pytest
+
+
+### documentation can be accessed locally using the following url
+http://localhost:8000/api/docs/
