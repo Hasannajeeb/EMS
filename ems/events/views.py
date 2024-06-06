@@ -11,6 +11,7 @@ from django.views.generic import CreateView
 from django.views.generic import DeleteView
 from .models import Event
 from django.utils.translation import gettext_lazy as _
+from django.urls import reverse
 
 from ems.users.models import User
 from .forms import EventCreateForm
@@ -71,5 +72,9 @@ event_update_view = EventUpdateView.as_view()
 class EventDeleteView(LoginRequiredMixin, SuccessMessageMixin, DeleteView):
     model = Event
     success_message = _("Event Deleted successfully")
+    # success_url =reverse_lazy('events:user-events')
+
+    def get_success_url(self, **kwargs):
+        return reverse("events:user-events")
 
 event_delete_view = EventDeleteView.as_view()

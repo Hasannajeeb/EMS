@@ -21,3 +21,6 @@ class Event(models.Model):
 
         """
         return reverse("events:detail", kwargs={"pk": self.id})
+
+    def get_delete_url(self) -> str:
+        return reverse("events:delete", kwargs={"pk": self.id})

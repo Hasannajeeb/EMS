@@ -33,7 +33,7 @@
 					{% endif %}
 					{% if enable_delete %}
 					<li class="tag__item btn btn-danger">
-						<a href="#"><i class="mr-2"></i>Delete</a>
+						<a href="{{ obj.get_delete_url }}"><i class="mr-2"></i>Delete</a>
 					</li>
 					{% endif %}
 				</ul>
