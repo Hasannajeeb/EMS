@@ -1,4 +1,11 @@
 {% extends "base.html" %}
+{% load static %}
+
+{% block css %}
+{{ block.super }}
+<link href="{% static 'css/list_view.css' %}" rel="stylesheet" />
+{% endblock %}
+
 {% block content %}
 <section class="light">
 	<div class="container py-2">
@@ -18,11 +25,17 @@
 				<div class="postcard__bar"></div>
 				<div class="postcard__preview-txt">{{obj.description}}</div>
 				<ul class="postcard__tagbox">
-					<li class="tag__item"><i class="fas fa-tag mr-2"></i>{{obj.time}}</li>
-					<li class="tag__item"><i class="fas fa-clock mr-2"></i>{{obj.duration}}</li>
-					<li class="tag__item play yellow">
-						<a href="#"><i class="fas fa-play mr-2"></i>{{obj.venue}}</a>
+					<li class="tag__item">
+						<i class="fas fa-tag mr-2"></i>{{obj.time}}</li>
+					{% if enable_edit %}
+						<li class="tag__item btn btn-primary">
+							<a href="#"><i class="mr-2"></i>Edit</li></a>
+					{% endif %}
+					{% if enable_delete %}
+					<li class="tag__item btn btn-danger">
+						<a href="#"><i class="mr-2"></i>Delete</a>
 					</li>
+					{% endif %}
 				</ul>
 			</div>
 		</article>

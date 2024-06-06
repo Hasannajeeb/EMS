@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.messages.views import SuccessMessageMixin
+from django.contrib.auth.mixins import UserPassesTestMixin
 from django.urls import reverse
 from django.views.generic import DetailView
 from django.views.generic import RedirectView
@@ -26,12 +27,19 @@ class AllEventsListView(ListView):
 
 all_events_list_view = AllEventsListView.as_view()
 
-class UserEventsListView(LoginRequiredMixin ,ListView):
+class UserEventsListView(LoginRequiredMixin , ListView):
     model = Event
     template_name = 'events/list_events.html'
+    context_object_name = 'objects'
 
     def get_query_set(self):
         return self.model.objects.filter(user=self.request.user)
+
+    def get_context_data(self, **kwargs):
+        kwargs = super().get_context_data(**kwargs)
+        kwargs['enable_delete'] = True
+        kwargs['enable_edit'] = True
+        return kwargs
 
 user_events_list_view = UserEventsListView.as_view()
 
