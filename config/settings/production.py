@@ -170,3 +170,18 @@ EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
+
+# STATIC
+# ------------------------------------------------------------------------------
+STATIC_ROOT = str(BASE_DIR / "staticfiles")
+STATIC_URL = "/static/"
+STATICFILES_DIRS = [str(APPS_DIR / "static")]
+STATICFILES_FINDERS = [
+    "django.contrib.staticfiles.finders.FileSystemFinder",
+    "django.contrib.staticfiles.finders.AppDirectoriesFinder",
+]
+
+# MEDIA
+# ------------------------------------------------------------------------------
+MEDIA_ROOT = str(APPS_DIR / "media")
+MEDIA_URL = "/media/"
